@@ -28,7 +28,7 @@ import(
 func main() {
     s := speakeasyapi.New(
         speakeasyapi.WithSecurity(shared.Security{
-            APIKey: "YOUR_API_KEY_HERE",
+            APIKey: "",
         }),
     )
 
@@ -64,7 +64,7 @@ import(
 func main() {
     s := speakeasyapi.New(
         speakeasyapi.WithSecurity(shared.Security{
-            APIKey: "YOUR_API_KEY_HERE",
+            APIKey: "",
         }),
     )
 
@@ -114,7 +114,7 @@ import(
 func main() {
     s := speakeasyapi.New(
         speakeasyapi.WithSecurity(shared.Security{
-            APIKey: "YOUR_API_KEY_HERE",
+            APIKey: "",
         }),
     )
 

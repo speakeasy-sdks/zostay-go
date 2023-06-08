@@ -48,14 +48,15 @@ func Float32(f float32) *float32 { return &f }
 func Float64(f float64) *float64 { return &f }
 
 type sdkConfiguration struct {
-	DefaultClient  HTTPClient
-	SecurityClient HTTPClient
-	Security       *shared.Security
-	ServerURL      string
-	Server         string
-	Language       string
-	SDKVersion     string
-	GenVersion     string
+	DefaultClient     HTTPClient
+	SecurityClient    HTTPClient
+	Security          *shared.Security
+	ServerURL         string
+	Server            string
+	Language          string
+	OpenAPIDocVersion string
+	SDKVersion        string
+	GenVersion        string
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -70,7 +71,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 	return ServerList[c.Server], nil
 }
 
-// SpeakeasyAPI - The Speakeasy API allows teams to manage common operations with their APIs
+// SpeakeasyAPI - Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
 // https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation
 type SpeakeasyAPI struct {
 	// APIEndpoints - REST APIs for managing ApiEndpoint entities
@@ -141,9 +142,10 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *SpeakeasyAPI {
 	sdk := &SpeakeasyAPI{
 		sdkConfiguration: sdkConfiguration{
-			Language:   "go",
-			SDKVersion: "1.0.0",
-			GenVersion: "2.35.2",
+			Language:          "go",
+			OpenAPIDocVersion: "0.3.0",
+			SDKVersion:        "1.1.0",
+			GenVersion:        "2.37.0",
 		},
 	}
 	for _, opt := range opts {
@@ -189,7 +191,7 @@ func (s *SpeakeasyAPI) ValidateAPIKey(ctx context.Context) (*operations.Validate
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion))
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
 
 	client := s.sdkConfiguration.SecurityClient
 

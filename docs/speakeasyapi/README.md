@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Speakeasy API allows teams to manage common operations with their APIs
+Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
 
 The Speakeasy Platform Documentation
 <https://docs.speakeasyapi.dev>
@@ -28,7 +28,7 @@ import(
 func main() {
     s := speakeasyapi.New(
         speakeasyapi.WithSecurity(shared.Security{
-            APIKey: "YOUR_API_KEY_HERE",
+            APIKey: "",
         }),
     )
 
