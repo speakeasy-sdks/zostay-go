@@ -15,3 +15,11 @@ Based on:
 - Speakeasy CLI 1.45.0 (2.37.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Go v1.1.0] https://github.com/speakeasy-sdks/zostay-go/releases/tag/v1.1.0 - .
+
+## 2023-06-10 00:58:38
+### Changes
+Based on:
+- OpenAPI Doc 0.3.0 
+- Speakeasy CLI 1.47.0 (2.39.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Go v1.2.0] https://github.com/speakeasy-sdks/zostay-go/releases/tag/v1.2.0 - .
